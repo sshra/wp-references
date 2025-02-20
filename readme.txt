@@ -3,7 +3,7 @@ Contributors: shra
 Donate link: https://shra.ru/2016/06/references-wp-plugin/
 Tags: reference, node reference, post connections
 Requires at least: 3.0
-Tested up to: 5.2.2
+Tested up to: 6.4
 Stable tag: 1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
@@ -44,7 +44,7 @@ REFShraAPI::update($postID = NULL, $refkey, $postIDs);
 // Update references data by post ID.
 
 REFShraAPI::find($postID = NULL, $postTypes = array(), $onlyPublished = false);
-// Search for article with attached post_id 
+// Search for article with attached post_id
 
 = Shortcode REF =
 

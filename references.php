@@ -2,7 +2,7 @@
 /*
 Plugin Name: References
 Description: Enables post references (for any type of publications) to connect articles to each other.
-Version: 1.201
+Version: 1.202
 Author: Shra <to@shra.ru>
 Author URI: https://shra.ru
 Tags: post references, refs, references, links
@@ -199,7 +199,7 @@ class REFShraAPI
 	 * @postID - post id of referenced article. Current post ID will be used, if postID isn`t provided.
 	 * @postTypes - array of post types where search for given reference article (any type if empty).
 	 * @onlyPublished - boolean, get only published articles
-	 * 
+	 *
 	 * Example:
 	 *
 	 * $post_id = get_the_ID();
@@ -218,13 +218,13 @@ class REFShraAPI
 				$where[] = "WP.post_status = 'publish'";
 			}
 			$query = "SELECT WP.ID, WP.post_type, WPM.meta_value
-   		  FROM {$wpdb->postmeta} WPM
-   			INNER JOIN {$wpdb->posts} WP ON WP.ID = WPM.post_id
-   			WHERE " . implode(' AND ', $where);
-   		if (!empty($postTypes)) {
-   			$query .= " AND WP.post_type in ('" . implode("', '", $postTypes) . "')";
-   		}
-			$data = $wpdb->get_results($query); 
+				FROM {$wpdb->postmeta} WPM
+				INNER JOIN {$wpdb->posts} WP ON WP.ID = WPM.post_id
+				WHERE " . implode(' AND ', $where);
+			if (!empty($postTypes)) {
+				$query .= " AND WP.post_type in ('" . implode("', '", $postTypes) . "')";
+			}
+			$data = $wpdb->get_results($query);
 			foreach ($data as $k => $v) {
 				$value = @unserialize($v->meta_value);
 				if ($value !== false && is_array($value) && in_array($postID, $value)) {
@@ -527,7 +527,7 @@ class REFShraClass
 		</table>
 		</form>
 	</div>
-<?
+<?php
 			}
 		}
 ?>
